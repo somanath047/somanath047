@@ -1,5 +1,5 @@
 # 💫 About Me:
-Cybersecurity & Backend Developer | B.Tech CSE<br><br>🔐 Interested in Cybersecurity, Network Security & Automation<br><br>🐧 Strong with Linux, BASH scripting, Python<br><br>🤖 Exploring AI/ML for security use-cases<br><br>🏆 SIH 2025 (College Level) – Top 3 Team<br><br>🚀 
+Cybersecurity & Backend Developer | B.Tech CSE<br><br>🔐 Interested in Cybersecurity, Network Security & Automation<br><br>🐧 Strong with Linux, BASH scripting, Python<br><br>🤖 Exploring AI/ML for security use-cases<br><br>🏆 SIH 2025 (College Level) – Top 3 Team<br><br>
 
 
 ## 🌐 Socials:
