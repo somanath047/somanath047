@@ -1,6 +1,8 @@
 # 💫 About Me:
 Cybersecurity & Backend Developer | B.Tech CSE<br><br>🔐 Interested in Cybersecurity, Network Security & Automation<br><br>🐧 Strong with Linux, BASH scripting, Python<br><br>🤖 Exploring AI/ML for security use-cases<br><br>🏆 SIH 2025 (College Level) – Top 3 Team<br><br>
 
+PORTFOLIO - https://somanath047.github.io/Cyber_Security-Portflolio/index.html
+
 
 ## 🌐 Socials:
 [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://facebook.com/https://www.facebook.com/sujatanayak.ani.7) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/4x__s_t_a_r) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/somanath-nayak-11297829b/) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@@stargaming00007) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:nayaksomanath938@gmail.com) 
