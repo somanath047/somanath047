@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somanath Nayak | Cybersecurity Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'monospace'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        cyber: {
+                            black: '#0a0a0f',
+                            dark: '#12121a',
+                            primary: '#00ff88',
+                            secondary: '#00d4ff',
+                            accent: '#ff006e',
+                            dim: 'rgba(0, 255, 136, 0.1)',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glitch': 'glitch 1s linear infinite',
+                        'scan': 'scan 4s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        glitch: {
+                            '0%, 100%': { transform: 'translate(0)' },
+                            '20%': { transform: 'translate(-2px, 2px)' },
+                            '40%': { transform: 'translate(-2px, -2px)' },
+                            '60%': { transform: 'translate(2px, 2px)' },
+                            '80%': { transform: 'translate(2px, -2px)' },
+                        },
+                        scan: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <base target="_blank">
+</head>
+
+<body class="font-sans antialiased grid-bg">
+
+    <!-- Noise Overlay -->
+    <div class="noise"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-panel border-b border-cyber-primary/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div
+                        class="w-8 h-8 bg-cyber-primary/20 rounded flex items-center justify-center border border-cyber-primary/30">
+                        <span class="text-cyber-primary font-mono font-bold text-sm">&lt;/&gt;</span>
+                    </div>
+                    <span class="font-mono font-bold text-xl tracking-tighter">
+                        <span class="text-white">SOMA</span><span class="text-cyber-primary">NATH</span>
+                    </span>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about"
+                            class="nav-link text-gray-300 hover:text-cyber-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">[01]
+                            About</a>
+                        <a href="#skills"
+                            class="nav-link text-gray-300 hover:text-cyber-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">[02]
+                            Skills</a>
+                        <a href="#experience"
+                            class="nav-link text-gray-300 hover:text-cyber-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">[03]
+                            Experience</a>
+                        <a href="#projects"
+                            class="nav-link text-gray-300 hover:text-cyber-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">[04]
+                            Projects</a>
+                        <a href="#certifications"
+                            class="nav-link text-gray-300 hover:text-cyber-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">[05]
+                            Certifications</a>
+                        <a href="#contact"
+                            class="bg-cyber-primary/10 border border-cyber-primary/50 text-cyber-primary hover:bg-cyber-primary hover:text-cyber-black px-4 py-2 rounded-md text-sm font-mono font-bold transition-all duration-300">Connect</a>
+                    </div>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-cyber-primary p-2" title="Toggle mobile menu">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-cyber-primary/10">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about"
+                    class="text-gray-300 hover:text-cyber-primary block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#skills"
+                    class="text-gray-300 hover:text-cyber-primary block px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                <a href="#experience"
+                    class="text-gray-300 hover:text-cyber-primary block px-3 py-2 rounded-md text-base font-medium">Experience</a>
+                <a href="#projects"
+                    class="text-gray-300 hover:text-cyber-primary block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="#certifications"
+                    class="text-gray-300 hover:text-cyber-primary block px-3 py-2 rounded-md text-base font-medium">Certifications</a>
+                <a href="#contact"
+                    class="text-cyber-primary block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator hidden lg:block">
+        <div class="scroll-dot active" data-section="hero"></div>
+        <div class="scroll-dot" data-section="about"></div>
+        <div class="scroll-dot" data-section="skills"></div>
+        <div class="scroll-dot" data-section="experience"></div>
+        <div class="scroll-dot" data-section="projects"></div>
+        <div class="scroll-dot" data-section="certifications"></div>
+        <div class="scroll-dot" data-section="contact"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-cyber-primary/5 rounded-full blur-3xl animate-pulse-slow">
+            </div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-cyber-secondary/5 rounded-full blur-3xl animate-pulse-slow"
+                style="animation-delay: 1s;"></div>
+            <canvas id="matrix-canvas" class="absolute inset-0 opacity-10"></canvas>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="space-y-8">
+                <!-- Status Badge -->
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-cyber-primary/20">
+                    <span class="w-2 h-2 bg-cyber-primary rounded-full animate-pulse"></span>
+                    <span class="text-cyber-primary font-mono text-sm">Available for Opportunities</span>
+                </div>
+
+                <!-- Main Title -->
+                <div class="space-y-4">
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">
+                        <span class="block text-white mb-2">CYBER</span>
+                        <span class="block text-gradient font-mono glitch-text" data-text="SECURITY">SECURITY</span>
+                    </h1>
+                    <div class="h-8 md:h-12">
+                        <span id="typing-text" class="text-xl md:text-3xl text-gray-400 font-mono"></span>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <p class="max-w-2xl mx-auto text-lg text-gray-400 leading-relaxed px-4">
+                    B.Tech CSE Undergraduate at GIET Bhubaneswar. Specializing in
+                    <span class="text-cyber-primary">Network Security</span>,
+                    <span class="text-cyber-secondary">Threat Intelligence</span>, and
+                    <span class="text-cyber-accent">Security Automation</span>.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+                    <a href="#projects"
+                        class="group relative px-8 py-4 bg-cyber-primary text-cyber-black font-bold rounded-lg overflow-hidden transition-all hover:scale-105">
+                        <span class="relative z-10 flex items-center gap-2">
+                            View Projects <i
+                                class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                        <div
+                            class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        </div>
+                    </a>
+                    <a href="#contact"
+                        class="px-8 py-4 border border-cyber-primary/30 text-cyber-primary font-mono rounded-lg hover:bg-cyber-primary/10 transition-all hover:border-cyber-primary">
+                        $ contact --init
+                    </a>
+                </div>
+
+                <!-- Quick Stats -->
+                <div
+                    class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mt-16 pt-8 border-t border-gray-800">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-cyber-primary font-mono">3+</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Internships</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-cyber-secondary font-mono">10+</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Projects</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-cyber-accent font-mono">5+</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Certifications</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-white font-mono">2027</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Graduation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-cyber-primary/50 text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: Visual -->
+                <div class="relative order-2 lg:order-1">
+                    <div class="relative w-full aspect-square max-w-md mx-auto">
+                        <div class="absolute inset-0 border-2 border-cyber-primary/20 rounded-2xl transform rotate-3">
+                        </div>
+                        <div
+                            class="absolute inset-0 border-2 border-cyber-secondary/20 rounded-2xl transform -rotate-3">
+                        </div>
+
+                        <div
+                            class="relative bg-cyber-dark rounded-2xl p-8 border border-cyber-primary/20 h-full flex flex-col justify-center glass-panel">
+                            <div class="font-mono text-sm text-cyber-primary mb-4">$ whoami</div>
+                            <div class="space-y-4 text-gray-300">
+                                <div class="flex justify-between border-b border-gray-800 pb-2">
+                                    <span class="text-gray-500">Name:</span>
+                                    <span class="text-white">Somanath Nayak</span>
+                                </div>
+                                <div class="flex justify-between border-b border-gray-800 pb-2">
+                                    <span class="text-gray-500">Role:</span>
+                                    <span class="text-cyber-secondary">Security Analyst</span>
+                                </div>
+                                <div class="flex justify-between border-b border-gray-800 pb-2">
+                                    <span class="text-gray-500">Email:</span>
+                                    <span class="text-white">somanathnayak455@gmail.com</span>
+                                </div>
+                                <div class="flex justify-between border-b border-gray-800 pb-2">
+                                    <span class="text-gray-500">Location:</span>
+                                    <span class="text-white">Khurda, Odisha</span>
+                                </div>
+                                <div class="flex justify-between border-b border-gray-800 pb-2">
+                                    <span class="text-gray-500">GitHub:</span>
+                                    <span class="text-white">github.com/somanath047</span>
+                                </div>
+                            </div>
+
+                            <!-- Terminal Line -->
+                            <div class="mt-6 pt-4 border-t border-gray-800">
+                                <div class="font-mono text-xs text-gray-500">
+                                    <span class="text-cyber-primary">root@somanath</span>:<span
+                                        class="text-white">~</span>$
+                                    <span class="terminal-cursor"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="order-1 lg:order-2 space-y-6">
+                    <div
+                        class="inline-block px-3 py-1 rounded-full bg-cyber-primary/10 border border-cyber-primary/20 text-cyber-primary text-sm font-mono mb-2">
+                        [01] About Me
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight">
+                        Securing the Digital <span class="text-gradient">Frontier</span>
+                    </h2>
+                    <div class="space-y-4 text-gray-400 text-lg leading-relaxed">
+                        <p>
+                            Passionate cybersecurity analyst with expertise in identifying vulnerabilities and building
+                            robust defense systems. Currently pursuing B.Tech in Computer Science at GIET Bhubaneswar,
+                            focusing on practical security implementations.
+                        </p>
+                        <p>
+                            Experienced in penetration testing, vulnerability assessment, and developing security
+                            automation tools. Constantly exploring new attack vectors and defense mechanisms to stay
+                            ahead in the cybersecurity landscape.
+                        </p>
+                    </div>
+
+                    <!-- Expertise Tags -->
+                    <div class="flex flex-wrap gap-3 pt-4">
+                        <span
+                            class="px-4 py-2 rounded-lg bg-cyber-dark border border-cyber-primary/20 text-cyber-primary text-sm font-mono hover:border-cyber-primary transition-colors cursor-default">
+                            <i class="fas fa-shield-alt mr-2"></i>Penetration Testing
+                        </span>
+                        <span
+                            class="px-4 py-2 rounded-lg bg-cyber-dark border border-cyber-secondary/20 text-cyber-secondary text-sm font-mono hover:border-cyber-secondary transition-colors cursor-default">
+                            <i class="fas fa-network-wired mr-2"></i>Network Security
+                        </span>
+                        <span
+                            class="px-4 py-2 rounded-lg bg-cyber-dark border border-cyber-accent/20 text-cyber-accent text-sm font-mono hover:border-cyber-accent transition-colors cursor-default">
+                            <i class="fas fa-robot mr-2"></i>Security Automation
+                        </span>
+                        <span
+                            class="px-4 py-2 rounded-lg bg-cyber-dark border border-purple-500/20 text-purple-400 text-sm font-mono hover:border-purple-500 transition-colors cursor-default">
+                            <i class="fas fa-brain mr-2"></i>Threat Intelligence
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 relative bg-cyber-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div
+                    class="inline-block px-3 py-1 rounded-full bg-cyber-secondary/10 border border-cyber-secondary/20 text-cyber-secondary text-sm font-mono mb-4">
+                    [02] Technical Arsenal
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Skills & <span class="text-gradient">Technologies</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cybersecurity -->
+                <div class="glass-panel rounded-2xl p-6 card-hover border border-cyber-primary/10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-cyber-primary/10 flex items-center justify-center text-cyber-primary text-2xl">
+                            <i class="fas fa-shield-virus"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Cybersecurity</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">Network Security</span>
+                                <span class="text-cyber-primary font-mono">90%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full rounded-full" style="width: 0%" data-width="90%">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">Penetration Testing</span>
+                                <span class="text-cyber-primary font-mono">85%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full rounded-full" style="width: 0%" data-width="85%">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">Vulnerability Assessment</span>
+                                <span class="text-cyber-primary font-mono">88%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full rounded-full" style="width: 0%" data-width="88%">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">Digital Forensics</span>
+                                <span class="text-cyber-primary font-mono">75%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full rounded-full" style="width: 0%" data-width="75%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programming -->
+                <div class="glass-panel rounded-2xl p-6 card-hover border border-cyber-secondary/10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-cyber-secondary/10 flex items-center justify-center text-cyber-secondary text-2xl">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Programming</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">Python</span>
+                                <span class="text-cyber-secondary font-mono">95%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full rounded-full bg-gradient-to-r from-cyber-secondary to-blue-500"
+                                    style="width: 0%" data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">BASH Scripting</span>
+                                <span class="text-cyber-secondary font-mono">90%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full rounded-full bg-gradient-to-r from-cyber-secondary to-blue-500"
+                                    style="width: 0%" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">JavaScript</span>
+                                <span class="text-cyber-secondary font-mono">80%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full rounded-full bg-gradient-to-r from-cyber-secondary to-blue-500"
+                                    style="width: 0%" data-width="80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">SQL</span>
+                                <span class="text-cyber-secondary font-mono">85%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full rounded-full bg-gradient-to-r from-cyber-secondary to-blue-500"
+                                    style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI/ML -->
+                <div class="glass-panel rounded-2xl p-6 card-hover border border-cyber-accent/10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-cyber-accent/10 flex items-center justify-center text-cyber-accent text-2xl">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">AI / Machine Learning</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">ML Algorithms</span>
+                                <span class="text-cyber-accent font-mono">85%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full rounded-full bg-gradient-to-r from-cyber-accent to-purple-500"
+                                    style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">Data Analysis</span>
+                                <span class="text-cyber-accent font-mono">88%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full rounded-full bg-gradient-to-r from-cyber-accent to-purple-500"
+                                    style="width: 0%" data-width="88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">TensorFlow/PyTorch</span>
+                                <span class="text-cyber-accent font-mono">80%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full rounded-full bg-gradient-to-r from-cyber-accent to-purple-500"
+                                    style="width: 0%" data-width="80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">Deep Learning</span>
+                                <span class="text-cyber-accent font-mono">75%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full rounded-full bg-gradient-to-r from-cyber-accent to-purple-500"
+                                    style="width: 0%" data-width="75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools Grid -->
+            <div class="mt-12 glass-panel rounded-2xl p-8 border border-gray-800">
+                <h3 class="text-center text-gray-400 text-sm font-mono mb-6 uppercase tracking-wider">Security Tools &
+                    Platforms</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+                    <div class="tool-item" data-tool="Kali Linux">
+                        <i class="fab fa-linux text-3xl"></i>
+                        <span class="text-xs">Kali Linux</span>
+                    </div>
+                    <div class="tool-item" data-tool="Metasploit">
+                        <i class="fas fa-crosshairs text-3xl"></i>
+                        <span class="text-xs">Metasploit</span>
+                    </div>
+                    <div class="tool-item" data-tool="Wireshark">
+                        <i class="fas fa-network-wired text-3xl"></i>
+                        <span class="text-xs">Wireshark</span>
+                    </div>
+                    <div class="tool-item" data-tool="Nmap">
+                        <i class="fas fa-search text-3xl"></i>
+                        <span class="text-xs">Nmap</span>
+                    </div>
+                    <div class="tool-item" data-tool="Burp Suite">
+                        <i class="fas fa-bug text-3xl"></i>
+                        <span class="text-xs">Burp Suite</span>
+                    </div>
+                    <div class="tool-item" data-tool="SIEM">
+                        <i class="fas fa-chart-line text-3xl"></i>
+                        <span class="text-xs">SIEM Tools</span>
+                    </div>
+                    <div class="tool-item" data-tool="Python">
+                        <i class="fab fa-python text-3xl"></i>
+                        <span class="text-xs">Python</span>
+                    </div>
+                    <div class="tool-item" data-tool="Docker">
+                        <i class="fab fa-docker text-3xl"></i>
+                        <span class="text-xs">Docker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div
+                    class="inline-block px-3 py-1 rounded-full bg-cyber-accent/10 border border-cyber-accent/20 text-cyber-accent text-sm font-mono mb-4">
+                    [03] Professional Journey
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Experience & <span class="text-gradient">Internships</span>
+                </h2>
+            </div>
+
+            <div class="relative">
+                <div
+                    class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-cyber-primary via-cyber-secondary to-cyber-accent">
+                </div>
+
+                <!-- Google Cybersecurity -->
+                <div class="relative mb-12 md:mb-24">
+                    <div class="md:flex items-center justify-between">
+                        <div class="md:w-5/12 md:text-right mb-4 md:mb-0 md:pr-8">
+                            <div class="glass-panel p-6 rounded-2xl border border-cyber-primary/20 card-hover">
+                                <span class="text-cyber-primary font-mono text-sm">Oct 2024 – Present</span>
+                                <h3 class="text-xl font-bold text-white mt-2">Cybersecurity Trainee</h3>
+                                <p class="text-gray-400 text-sm mb-3">Google Professional Certificate</p>
+                                <ul class="text-sm text-gray-500 space-y-1 md:text-right">
+                                    <li>• SIEM tools & NIST frameworks</li>
+                                    <li>• Incident detection & response</li>
+                                    <li>• Network security protocols</li>
+                                    <li>• Security assessment tools</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div
+                            class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-cyber-primary rounded-full border-4 border-cyber-black shadow-lg shadow-cyber-primary/50">
+                        </div>
+
+                        <div class="md:w-5/12 md:pl-8 ml-12 md:ml-0">
+                            <div
+                                class="w-16 h-16 rounded-2xl bg-cyber-primary/10 flex items-center justify-center text-cyber-primary text-3xl border border-cyber-primary/30">
+                                <i class="fab fa-google"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- InternPe AI/ML -->
+                <div class="relative mb-12 md:mb-24">
+                    <div class="md:flex items-center justify-between flex-row-reverse">
+                        <div class="md:w-5/12 md:text-left mb-4 md:mb-0 md:pl-8">
+                            <div class="glass-panel p-6 rounded-2xl border border-cyber-secondary/20 card-hover">
+                                <span class="text-cyber-secondary font-mono text-sm">Sep 2024 – Oct 2024</span>
+                                <h3 class="text-xl font-bold text-white mt-2">AI/ML Intern</h3>
+                                <p class="text-gray-400 text-sm mb-3">InternPe</p>
+                                <ul class="text-sm text-gray-500 space-y-1">
+                                    <li>• ML model development</li>
+                                    <li>• Data preprocessing pipelines</li>
+                                    <li>• Anomaly detection systems</li>
+                                    <li>• Model optimization techniques</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div
+                            class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-cyber-secondary rounded-full border-4 border-cyber-black shadow-lg shadow-cyber-secondary/50">
+                        </div>
+
+                        <div class="md:w-5/12 md:pr-8 text-right ml-12 md:ml-0 md:text-right">
+                            <div
+                                class="w-16 h-16 rounded-2xl bg-cyber-secondary/10 flex items-center justify-center text-cyber-secondary text-3xl border border-cyber-secondary/30 md:ml-auto">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Internshala Python -->
+                <div class="relative">
+                    <div class="md:flex items-center justify-between">
+                        <div class="md:w-5/12 md:text-right mb-4 md:mb-0 md:pr-8">
+                            <div class="glass-panel p-6 rounded-2xl border border-cyber-accent/20 card-hover">
+                                <span class="text-cyber-accent font-mono text-sm">Oct 2024 – Present</span>
+                                <h3 class="text-xl font-bold text-white mt-2">Python Security Developer</h3>
+                                <p class="text-gray-400 text-sm mb-3">Internshala</p>
+                                <ul class="text-sm text-gray-500 space-y-1 md:text-right">
+                                    <li>• Security automation scripts</li>
+                                    <li>• Penetration testing tools</li>
+                                    <li>• Vulnerability scanners</li>
+                                    <li>• Network monitoring tools</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div
+                            class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-cyber-accent rounded-full border-4 border-cyber-black shadow-lg shadow-cyber-accent/50">
+                        </div>
+
+                        <div class="md:w-5/12 md:pl-8 ml-12 md:ml-0">
+                            <div
+                                class="w-16 h-16 rounded-2xl bg-cyber-accent/10 flex items-center justify-center text-cyber-accent text-3xl border border-cyber-accent/30">
+                                <i class="fab fa-python"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 relative bg-cyber-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div
+                    class="inline-block px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-mono mb-4">
+                    [04] Featured Projects
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Security <span class="text-gradient">Projects</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Hands-on security implementations, automation tools, and machine learning solutions.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: Advanced Network Scanner -->
+                <div
+                    class="group relative glass-panel rounded-2xl overflow-hidden border border-cyber-primary/10 card-hover">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-cyber-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="p-6 relative z-10">
+                        <div class="flex justify-between items-start mb-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-cyber-primary/10 flex items-center justify-center text-cyber-primary text-xl border border-cyber-primary/20">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="flex gap-2">
+                                <span
+                                    class="px-2 py-1 rounded bg-cyber-black text-xs font-mono text-cyber-primary border border-cyber-primary/20">Python</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-cyber-black text-xs font-mono text-cyber-secondary border border-cyber-secondary/20">Network</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyber-primary transition-colors">
+                            Advanced Network Scanner</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">
+                            Multi-threaded network scanner with OS detection, service enumeration, and vulnerability
+                            assessment capabilities.
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                            <div class="flex gap-3 text-gray-500 text-sm">
+                                <span><i class="fab fa-python mr-1"></i>Python</span>
+                                <span><i class="fas fa-server mr-1"></i>Scapy</span>
+                            </div>
+                            <a href="https://github.com/somanath047/Network-Scanner"
+                                class="text-cyber-primary hover:text-white transition-colors text-sm font-mono">
+                                View Code <i class="fas fa-external-link-alt ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: ML-Based IDS -->
+                <div
+                    class="group relative glass-panel rounded-2xl overflow-hidden border border-cyber-secondary/10 card-hover">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-cyber-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="p-6 relative z-10">
+                        <div class="flex justify-between items-start mb-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-cyber-secondary/10 flex items-center justify-center text-cyber-secondary text-xl border border-cyber-secondary/20">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="flex gap-2">
+                                <span
+                                    class="px-2 py-1 rounded bg-cyber-black text-xs font-mono text-cyber-secondary border border-cyber-secondary/20">ML</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-cyber-black text-xs font-mono text-cyber-accent border border-cyber-accent/20">Python</span>
+                            </div>
+                        </div>
+                        <h3
+                            class="text-xl font-bold text-white mb-2 group-hover:text-cyber-secondary transition-colors">
+                            ML Intrusion Detection System</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">
+                            Real-time intrusion detection using machine learning algorithms to classify network traffic
+                            as malicious or benign.
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                            <div class="flex gap-3 text-gray-500 text-sm">
+                                <span><i class="fas fa-robot mr-1"></i>Scikit-learn</span>
+                                <span><i class="fas fa-chart-line mr-1"></i>TensorFlow</span>
+                            </div>
+                            <a href="https://github.com/somanath047/ML-IDS"
+                                class="text-cyber-secondary hover:text-white transition-colors text-sm font-mono">
+                                View Code <i class="fas fa-external-link-alt ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Password Cracker -->
+                <div
+                    class="group relative glass-panel rounded-2xl overflow-hidden border border-cyber-accent/10 card-hover">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-cyber-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="p-6 relative z-10">
+                        <div class="flex justify-between items-start mb-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-cyber-accent/10 flex items-center justify-center text-cyber-accent text-xl border border-cyber-accent/20">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <div class="flex gap-2">
+                                <span
+                                    class="px-2 py-1 rounded bg-cyber-black text-xs font-mono text-cyber-accent border border-cyber-accent/20">Python</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-cyber-black text-xs font-mono text-purple-400 border border-purple-400/20">Security</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyber-accent transition-colors">
+                            Advanced Password Cracker</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">
+                            Multi-threaded password cracking tool supporting dictionary attacks, brute force, and
+                            rainbow table attacks.
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                            <div class="flex gap-3 text-gray-500 text-sm">
+                                <span><i class="fas fa-lock mr-1"></i>Hashcat</span>
+                                <span><i class="fas fa-bolt mr-1"></i>Multi-threading</span>
+                            </div>
+                            <a href="https://github.com/somanath047/Password-Cracker"
+                                class="text-cyber-accent hover:text-white transition-colors text-sm font-mono">
+                                View Code <i class="fas fa-external-link-alt ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Web Vulnerability Scanner -->
+                <div
+                    class="group relative glass-panel rounded-2xl overflow-hidden border border-purple-500/10 card-hover">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="p-6 relative z-10">
+                        <div class="flex justify-between items-start mb-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 text-xl border border-purple-500/20">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="flex gap-2">
+                                <span
+                                    class="px-2 py-1 rounded bg-cyber-black text-xs font-mono text-purple-400 border border-purple-400/20">Python</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-cyber-black text-xs font-mono text-cyber-primary border border-cyber-primary/20">Web</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">Web
+                            Vulnerability Scanner</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">
+                            Automated web application scanner detecting XSS, SQL injection, and other OWASP Top 10
+                            vulnerabilities.
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                            <div class="flex gap-3 text-gray-500 text-sm">
+                                <span><i class="fas fa-code mr-1"></i>Requests</span>
+                                <span><i class="fas fa-shield-alt mr-1"></i>BeautifulSoup</span>
+                            </div>
+                            <a href="https://github.com/somanath047/Web-Scanner"
+                                class="text-purple-400 hover:text-white transition-colors text-sm font-mono">
+                                View Code <i class="fas fa-external-link-alt ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Encryption Tool -->
+                <div
+                    class="group relative glass-panel rounded-2xl overflow-hidden border border-cyan-500/10 card-hover">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="p-6 relative z-10">
+                        <div class="flex justify-between items-start mb-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 text-xl border border-cyan-500/20">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="flex gap-2">
+                                <span
+                                    class="px-2 py-1 rounded bg-cyber-black text-xs font-mono text-cyan-400 border border-cyan-400/20">Python</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-cyber-black text-xs font-mono text-cyber-secondary border border-cyber-secondary/20">Crypto</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                            Cryptography Toolkit</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">
+                            Comprehensive encryption/decryption tool supporting AES, RSA, and custom encryption
+                            algorithms with GUI interface.
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                            <div class="flex gap-3 text-gray-500 text-sm">
+                                <span><i class="fas fa-key mr-1"></i>PyCryptodome</span>
+                                <span><i class="fas fa-desktop mr-1"></i>Tkinter</span>
+                            </div>
+                            <a href="https://github.com/somanath047/Crypto-Toolkit"
+                                class="text-cyan-400 hover:text-white transition-colors text-sm font-mono">
+                                View Code <i class="fas fa-external-link-alt ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Malware Analyzer -->
+                <div class="group relative glass-panel rounded-2xl overflow-hidden border border-red-500/10 card-hover">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="p-6 relative z-10">
+                        <div class="flex justify-between items-start mb-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center text-red-400 text-xl border border-red-500/20">
+                                <i class="fas fa-virus"></i>
+                            </div>
+                            <div class="flex gap-2">
+                                <span
+                                    class="px-2 py-1 rounded bg-cyber-black text-xs font-mono text-red-400 border border-red-400/20">Python</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-cyber-black text-xs font-mono text-cyber-accent border border-cyber-accent/20">Analysis</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">Malware
+                            Analysis Sandbox</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">
+                            Automated malware analysis system with sandboxing, behavioral analysis, and signature
+                            detection capabilities.
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                            <div class="flex gap-3 text-gray-500 text-sm">
+                                <span><i class="fas fa-cube mr-1"></i>Docker</span>
+                                <span><i class="fas fa-chart-bar mr-1"></i>YARA</span>
+                            </div>
+                            <a href="https://github.com/somanath047/Malware-Analyzer"
+                                class="text-red-400 hover:text-white transition-colors text-sm font-mono">
+                                View Code <i class="fas fa-external-link-alt ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitHub CTA -->
+            <div class="mt-12 text-center">
+                <a href="https://github.com/somanath047"
+                    class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-700 text-gray-400 hover:border-cyber-primary hover:text-cyber-primary transition-all hover:scale-105">
+                    <i class="fab fa-github text-xl"></i>
+                    <span class="font-mono">View All Projects on GitHub</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div
+                    class="inline-block px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-mono mb-4">
+                    [05] Certifications
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Certifications & <span class="text-gradient">Achievements</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Google Cybersecurity -->
+                <div class="glass-panel rounded-2xl p-6 border border-cyber-primary/20 card-hover">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-cyber-primary/10 flex items-center justify-center text-cyber-primary text-2xl">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Google Cybersecurity</h3>
+                            <p class="text-cyber-primary text-sm font-mono">Professional Certificate</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Comprehensive training in security fundamentals, threat analysis, and incident response.
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                        <span class="text-xs text-gray-500">Issued: 2024</span>
+                        <span
+                            class="px-2 py-1 rounded bg-cyber-primary/10 text-cyber-primary text-xs font-mono">Active</span>
+                    </div>
+                </div>
+
+                <!-- TryHackMe -->
+                <div class="glass-panel rounded-2xl p-6 border border-cyber-secondary/20 card-hover">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-cyber-secondary/10 flex items-center justify-center text-cyber-secondary text-2xl">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">TryHackMe</h3>
+                            <p class="text-cyber-secondary text-sm font-mono">Top 1% Ranking</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Completed 50+ rooms covering penetration testing, web exploitation, and forensics.
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                        <span class="text-xs text-gray-500">Rank: Top 1%</span>
+                        <span
+                            class="px-2 py-1 rounded bg-cyber-secondary/10 text-cyber-secondary text-xs font-mono">Elite</span>
+                    </div>
+                </div>
+
+                <!-- Python Security -->
+                <div class="glass-panel rounded-2xl p-6 border border-cyber-accent/20 card-hover">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-cyber-accent/10 flex items-center justify-center text-cyber-accent text-2xl">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Python for Security</h3>
+                            <p class="text-cyber-accent text-sm font-mono">Advanced Certification</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Advanced Python programming for security automation, tool development, and analysis.
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                        <span class="text-xs text-gray-500">Issued: 2024</span>
+                        <span
+                            class="px-2 py-1 rounded bg-cyber-accent/10 text-cyber-accent text-xs font-mono">Completed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative bg-cyber-dark/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel rounded-3xl p-8 md:p-12 border border-cyber-primary/20 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-cyber-primary/5 rounded-full blur-3xl -mr-32 -mt-32">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-64 h-64 bg-cyber-secondary/5 rounded-full blur-3xl -ml-32 -mb-32">
+                </div>
+
+                <div class="relative z-10 text-center mb-12">
+                    <div
+                        class="inline-block px-3 py-1 rounded-full bg-cyber-primary/10 border border-cyber-primary/20 text-cyber-primary text-sm font-mono mb-4">
+                        [06] Get In Touch
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                        Let's <span class="text-gradient">Connect</span>
+                    </h2>
+                    <p class="text-gray-400 max-w-lg mx-auto">
+                        Open to cybersecurity opportunities, collaborative projects, and research discussions.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="space-y-6">
+                        <a href="mailto:somanathnayak455@gmail.com"
+                            class="flex items-center gap-4 p-4 rounded-xl bg-cyber-black/50 border border-gray-800 hover:border-cyber-primary/30 transition-all hover:scale-105">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-cyber-primary/10 flex items-center justify-center text-cyber-primary">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-500">Email</div>
+                                <div class="text-white font-mono">somanathnayak455@gmail.com</div>
+                            </div>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/somanath-nayak-11297829b/"
+                            class="flex items-center gap-4 p-4 rounded-xl bg-cyber-black/50 border border-gray-800 hover:border-cyber-secondary/30 transition-all hover:scale-105">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-cyber-secondary/10 flex items-center justify-center text-cyber-secondary">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-500">LinkedIn</div>
+                                <div class="text-white">Somanath Nayak</div>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/somanath047"
+                            class="flex items-center gap-4 p-4 rounded-xl bg-cyber-black/50 border border-gray-800 hover:border-cyber-accent/30 transition-all hover:scale-105">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-cyber-accent/10 flex items-center justify-center text-cyber-accent">
+                                <i class="fab fa-github text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-500">GitHub</div>
+                                <div class="text-white">@somanath047</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <input type="text" id="name" placeholder="Your Name" required
+                                class="w-full px-4 py-3 rounded-lg bg-cyber-black border border-gray-800 text-white placeholder-gray-600 focus:border-cyber-primary focus:outline-none transition-colors font-mono text-sm">
+                        </div>
+                        <div>
+                            <input type="email" id="email" placeholder="your@email.com" required
+                                class="w-full px-4 py-3 rounded-lg bg-cyber-black border border-gray-800 text-white placeholder-gray-600 focus:border-cyber-primary focus:outline-none transition-colors font-mono text-sm">
+                        </div>
+                        <div>
+                            <input type="text" id="subject" placeholder="Subject" required
+                                class="w-full px-4 py-3 rounded-lg bg-cyber-black border border-gray-800 text-white placeholder-gray-600 focus:border-cyber-primary focus:outline-none transition-colors font-mono text-sm">
+                        </div>
+                        <div>
+                            <textarea id="message" rows="4" placeholder="Your message..." required
+                                class="w-full px-4 py-3 rounded-lg bg-cyber-black border border-gray-800 text-white placeholder-gray-600 focus:border-cyber-primary focus:outline-none transition-colors font-mono text-sm resize-none"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full py-3 bg-cyber-primary text-cyber-black font-bold rounded-lg hover:bg-cyber-primary/90 transition-all hover:scale-105 flex items-center justify-center gap-2">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Social Links -->
+                <div class="flex justify-center gap-6 pt-8 border-t border-gray-800">
+                    <a href="https://www.linkedin.com/in/somanath-nayak-11297829b/" class="social-icon linkedin">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="https://github.com/somanath047" class="social-icon github">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/4x__s_t_a_r" class="social-icon instagram">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="mailto:somanathnayak455@gmail.com" class="social-icon email">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="https://tryhackme.com/p/somanath047" class="social-icon tryhackme">
+                        <i class="fas fa-terminal text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800 bg-cyber-black">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <span class="font-mono font-bold text-lg">
+                    <span class="text-white">SOMA</span><span class="text-cyber-primary">NATH</span>
+                </span>
+                <span class="text-gray-600">|</span>
+                <span class="text-gray-500 text-sm">Cybersecurity Portfolio</span>
+            </div>
+            <div class="text-gray-600 text-sm font-mono">
+                <span class="text-cyber-primary">&lt;/&gt;</span> Securing the digital world
+            </div>
+            <div class="text-gray-600 text-sm">
+                © 2024 Somanath Nayak. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
