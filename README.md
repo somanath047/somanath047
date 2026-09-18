@@ -1,7 +1,7 @@
 # 💫 About Me:
 Cybersecurity & Backend Developer | B.Tech CSE<br><br>🔐 Interested in Cybersecurity, Network Security & Automation<br><br>🐧 Strong with Linux, BASH scripting, Python<br><br>🤖 Exploring AI/ML for security use-cases<br><br>🏆 SIH 2025 (College Level) – Top 3 Team<br><br>
 
-PORTFOLIO - https://somanath047.github.io/Cyber_Security-Portflolio/index.html
+PORTFOLIO - [https://somanath047.github.io/Cyber_Security-Portflolio/index.html](https://somanath047.github.io/MY_PORTFOLIO/)
 
 
 ## 🌐 Socials:
